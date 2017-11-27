@@ -9,4 +9,8 @@ class Book < ApplicationRecord
   has_many :authors, through: :relationships, source_type: Author.name, source: :ownerable
 
   belongs_to :publisher
+
+  rails_admin do
+    exclude_fields :relationships, :users, :borrow_books, :comments, :user_ratings
+  end
 end
