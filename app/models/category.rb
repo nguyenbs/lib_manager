@@ -4,4 +4,10 @@ class Category < ApplicationRecord
     source_type: Book.name, source: :targetable
 
   validates :name, presence: true
+
+  accepts_nested_attributes_for :books
+
+  rails_admin do
+    exclude_fields :relationships
+  end
 end
