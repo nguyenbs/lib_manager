@@ -12,10 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20171127030413) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "authors", force: :cascade do |t|
+  create_table "authors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "gender"
     t.string "address"
@@ -28,7 +25,7 @@ ActiveRecord::Schema.define(version: 20171127030413) do
     t.index ["publisher_id"], name: "index_authors_on_publisher_id"
   end
 
-  create_table "books", force: :cascade do |t|
+  create_table "books", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "publisher_year"
     t.integer "amount"
     t.string "name"
@@ -44,7 +41,7 @@ ActiveRecord::Schema.define(version: 20171127030413) do
     t.index ["publisher_id"], name: "index_books_on_publisher_id"
   end
 
-  create_table "borrow_books", force: :cascade do |t|
+  create_table "borrow_books", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.date "date_borrow"
     t.date "date_return"
     t.integer "status", default: 0, null: false
@@ -57,13 +54,13 @@ ActiveRecord::Schema.define(version: 20171127030413) do
     t.index ["user_id"], name: "index_borrow_books_on_user_id"
   end
 
-  create_table "categories", force: :cascade do |t|
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "comments", force: :cascade do |t|
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
     t.bigint "book_id"
     t.string "content"
@@ -74,7 +71,7 @@ ActiveRecord::Schema.define(version: 20171127030413) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "publishers", force: :cascade do |t|
+  create_table "publishers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "address"
     t.string "phone"
@@ -84,7 +81,7 @@ ActiveRecord::Schema.define(version: 20171127030413) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "relationships", force: :cascade do |t|
+  create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "ownerable_id"
     t.string "ownerable_type"
     t.integer "targetable_id"
@@ -94,7 +91,7 @@ ActiveRecord::Schema.define(version: 20171127030413) do
     t.index ["ownerable_id", "targetable_id"], name: "index_relationships_on_ownerable_id_and_targetable_id"
   end
 
-  create_table "user_ratings", force: :cascade do |t|
+  create_table "user_ratings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
     t.bigint "book_id"
     t.integer "rate"
@@ -105,9 +102,8 @@ ActiveRecord::Schema.define(version: 20171127030413) do
     t.index ["user_id"], name: "index_user_ratings_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email"
-    t.string "password"
     t.string "address"
     t.string "name"
     t.string "phone_number"
@@ -123,8 +119,8 @@ ActiveRecord::Schema.define(version: 20171127030413) do
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet "current_sign_in_ip"
-    t.inet "last_sign_in_ip"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

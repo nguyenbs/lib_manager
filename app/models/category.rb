@@ -4,4 +4,8 @@ class Category < ApplicationRecord
     source_type: Book.name, source: :targetable
 
   validates :name, presence: true
+
+  rails_admin do
+    exclude_fields :relationships
+  end
 end
