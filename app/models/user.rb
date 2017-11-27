@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
   has_many :comments, dependent: :destroy
   has_many :user_ratings, dependent: :destroy
   has_many :borrow_books
@@ -9,7 +13,7 @@ class User < ApplicationRecord
   has_many :following_author, through: :relationships,
     source_type: Author.name, source: :targetable
 
-  has_many :active_relationships, ->{user_name_owner}, class_name: Relationship.name,
+  has_many :active_relationships, class_name: Relationship.name,
     foreign_key: "ownerable_id", dependent: :destroy
   has_many :following, through: :active_relationships,
     source_type: User.name, source: :targetable
