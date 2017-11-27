@@ -6,7 +6,7 @@ class Author < ApplicationRecord
   has_many :books, through: :active_relationships, source_type: Book.name,
     source: :targetable
 
-  has_many :passive_relationships, -> {author_name}, class_name: Relationship.name,
+  has_many :passive_relationships, class_name: Relationship.name,
     foreign_key: "targetable_id", dependent: :destroy
   has_many :follower_users, through: :passive_relationships,
     source_type: User.name, source: :ownerable
