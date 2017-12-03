@@ -10,6 +10,10 @@ class Book < ApplicationRecord
 
   belongs_to :publisher
 
+  accepts_nested_attributes_for :publisher
+  accepts_nested_attributes_for :categories
+  accepts_nested_attributes_for :authors
+  
   rails_admin do
     exclude_fields :relationships, :users, :borrow_books, :comments, :user_ratings
   end

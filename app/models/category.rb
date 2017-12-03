@@ -5,6 +5,8 @@ class Category < ApplicationRecord
 
   validates :name, presence: true
 
+  accepts_nested_attributes_for :books
+
   rails_admin do
     exclude_fields :relationships
   end
