@@ -25,6 +25,8 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :password, presence: true
 
+  mount_uploader :avatar, ImageUploader
+
   rails_admin do
     exclude_fields :following, :followers, :books, :following_author, :last_sign_in_ip, :current_sign_in_ip, :last_sign_in_at, :current_sign_in_at, :sign_in_count, :remember_created_at, :reset_password_sent_at
   end
