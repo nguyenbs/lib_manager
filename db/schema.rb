@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20171127030413) do
     t.integer "publisher_id"
     t.string "cover_image"
     t.string "image"
+    t.integer "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["publisher_id"], name: "index_books_on_publisher_id"

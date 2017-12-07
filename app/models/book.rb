@@ -10,11 +10,14 @@ class Book < ApplicationRecord
 
   belongs_to :publisher
 
-  accepts_nested_attributes_for :publisher
-  accepts_nested_attributes_for :categories
-  accepts_nested_attributes_for :authors
-  
   rails_admin do
     exclude_fields :relationships, :users, :borrow_books, :comments, :user_ratings
+    create do 
+      field :type , :enum do
+        enum do
+          [['Books',1],['Ebook',2], ['DVDs', 3], ['Magazine', 4], ['Audio', 5], ['EAudio', 5]]
+        end
+      end 
+    end
   end
 end
