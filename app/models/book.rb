@@ -11,11 +11,11 @@ class Book < ApplicationRecord
   belongs_to :publisher
 
   rails_admin do
-    exclude_fields :relationships, :users, :borrow_books, :comments, :user_ratings
+    exclude_fields :categories, :relationships, :users, :borrow_books, :comments, :user_ratings, :authors
     create do 
-      field :type , :enum do
+      field :type_name , :enum do
         enum do
-          [['Books',1],['Ebook',2], ['DVDs', 3], ['Magazine', 4], ['Audio', 5], ['EAudio', 5]]
+          ['Books', 'Ebook', 'DVDs', 'Magazine', 'Audio', 'EAudio']
         end
       end 
     end

@@ -6,6 +6,6 @@ class Author < ApplicationRecord
   has_many :follower_users, through: :relationships, source_type: User.name, source: :ownerable
 
   rails_admin do
-    exclude_fields :follower_users
+    exclude_fields :categories, :relationships, :users, :borrow_books, :comments, :user_ratings, :authors
   end
 end

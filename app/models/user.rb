@@ -26,6 +26,6 @@ class User < ApplicationRecord
   validates :password, presence: true
 
   rails_admin do
-    exclude_fields :following, :followers, :books, :following_author, :last_sign_in_ip, :current_sign_in_ip, :last_sign_in_at, :current_sign_in_at, :sign_in_count, :remember_created_at, :reset_password_sent_at
+    exclude_fields :relationships, :following, :followers, :books, :following_author, :last_sign_in_ip, :current_sign_in_ip, :last_sign_in_at, :current_sign_in_at, :sign_in_count, :remember_created_at, :reset_password_sent_at
   end
 end
