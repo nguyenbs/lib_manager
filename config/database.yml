@@ -44,7 +44,9 @@ test:
 #
 # You can use this database configuration with:
 #
-#   production:
-#     url: <%= ENV['DATABASE_URL'] %>
-#
+  production:
+    <<: *default
+    database: lib_manaement_production
+    password: lib_production
+
 

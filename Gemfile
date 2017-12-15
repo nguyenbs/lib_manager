@@ -14,6 +14,7 @@ gem 'devise'
 gem 'rails_admin', '~> 1.2'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
+gem 'unicorn'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -44,6 +45,10 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.6'
   gem 'factory_girl_rails'
   gem 'fabrication'
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-rvm'
+  gem 'capistrano3-unicorn'
 end
 
 group :test do
