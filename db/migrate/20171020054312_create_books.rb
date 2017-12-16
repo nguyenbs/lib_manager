@@ -11,7 +11,7 @@ class CreateBooks < ActiveRecord::Migration[5.1]
       t.integer :publisher_id
       t.string :cover_image
       t.string :image
-
+      t.integer :type
       t.timestamps
     end
     add_index :books, :publisher_id
