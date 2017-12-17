@@ -46,7 +46,7 @@ test:
 #
 production:
   <<: *default
-  database: lib_manaement_production
+  database: lib_management_production
   password: lib_production
 
 

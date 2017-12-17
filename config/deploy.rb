@@ -51,7 +51,8 @@ set :use_sudo, false
 set :bundle_binstubs, nil
 #set :linked_files, fetch(:linked_files, []).push('config/database.yml')
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
-
+set :unicorn_config_path, "/home/ubuntu/furniture/current/config/unicorn/production.rb"
+set :unicorn_rack_env, "production"
 after 'deploy:publishing', 'deploy:restart'
 
 namespace :deploy do
