@@ -8,6 +8,6 @@ class Author < ApplicationRecord
   mount_uploader :avatar, ImageUploader
 
   rails_admin do
-    exclude_fields :categories, :relationships, :users, :borrow_books, :comments, :user_ratings, :authors
+    exclude_fields :categories, :relationships, :users, :borrow_books, :comments, :user_ratings, :books, :follower_users
   end
 end

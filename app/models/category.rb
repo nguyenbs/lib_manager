@@ -6,6 +6,6 @@ class Category < ApplicationRecord
   validates :name, presence: true
 
   rails_admin do
-    exclude_fields :relationships
+    exclude_fields :relationships, :books
   end
 end
