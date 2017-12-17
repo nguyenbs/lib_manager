@@ -15,12 +15,5 @@ class Book < ApplicationRecord
 
   rails_admin do
     exclude_fields :categories, :relationships, :users, :borrow_books, :comments, :user_ratings, :authors
-    create do 
-      field :type_name , :enum do
-        enum do
-          ['Books', 'Ebook', 'DVDs', 'Magazine', 'Audio', 'EAudio']
-        end
-      end 
-    end
   end
 end
