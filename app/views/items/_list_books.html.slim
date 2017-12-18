@@ -1,0 +1,33 @@
+.category-list
+  - books.each do |book|
+    li.category-item style='display: inline-block'
+      figure
+        = image_tag book.cover_image
+        figcaption.bg-orange
+          .info-block
+            h4 #{book.name}
+            span.author
+              strong Author:
+              - book.authors.each do |author|
+                | #{author.name},
+            .rating
+              select.rating-item
+                - 5.times do |i|
+                  - if i < book.rating
+                    option selected="selected" value="#{i+1}" #{i+1}
+                  - else
+                    option value="#{i+1}" #{i+1}
+            p #{book.description}
+            = link_to 'Read More', item_path(book)
+            ol
+              li
+                i.fa.fa-shopping-cart
+              li
+                i.fa.fa-heart
+              li
+                i.fa.fa-envelope
+              li
+                i.fa.fa-share-alt
+              li
+                i.fa.fa-search
+  .clearfix
