@@ -1,5 +1,5 @@
 .category-list
-  - books.each do |book|
+  - @books.each do |book|
     li.category-item style='display: inline-block'
       figure
         = image_tag book.cover_image
@@ -31,3 +31,8 @@
               li
                 i.fa.fa-search
   .clearfix
+javascript:
+  $('.rating-item').barrating({
+    theme: 'bootstrap-stars',
+    readonly: true,
+  });

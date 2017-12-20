@@ -38,12 +38,7 @@ section.category-filter.section-padding
       = link_to 'Science', items_search_path('search[name]': '', 'search[category]': 'Science', 'search[author]': ''), method: :post, class: 'filter btn', remote: true
 .list-book.category-filter
   #category-filter
-  = render 'list_books', books: @books
-javascript:
-  $('.rating-item').barrating({
-    theme: 'bootstrap-stars',
-    readonly: true,
-  });
+    = render 'list_books', books: @books
 sass:
   .filter-box
     input
