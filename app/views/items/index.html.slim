@@ -38,12 +38,7 @@ section.category-filter.section-padding
       .filter.btn data-filter=".magazines"  Magazines
 .list-book.category-filter
   #category-filter
-  = render 'list_books', books: @books
-javascript:
-  $('.rating-item').barrating({
-    theme: 'bootstrap-stars',
-    readonly: true,
-  });
+    = render 'list_books', books: @books
 sass:
   .filter-box
     input
