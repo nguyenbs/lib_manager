@@ -1,0 +1,29 @@
+section.search-filters
+  .container
+    .filter-box
+      h3 List Books
+      = form_for :search, url: items_path, method: :get do |f|
+        .col-md-4.col-sm-6
+          .form-group
+            label.sr-only for='name' Search by name
+            = f.text_field :name, placeholder: 'Search by name', class: 'form-control'
+        .col-md-3.col-sm-6
+          .form-group
+            label.sr-only for='author' Search by Author
+            = f.text_field :author, placeholder: 'Search by author', class: 'form-control'
+        .col-md-3.col-sm-6
+          .form-group
+            label.sr-only for='category' Search by Category
+            = f.text_field :category, placeholder: 'Search by category', class: 'form-control'
+        .col-md-2.col-sm-6
+          .form-group
+            = f.submit 'Search', class: 'form-control submit'
+        .clearfix
+sass:
+  .filter-box
+    input
+      padding: 25px
+  .select
+    display: none !important
+  .submit
+    line-height: 0
