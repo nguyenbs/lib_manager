@@ -4,7 +4,7 @@ RailsAdmin.config do |config|
 
   ## == Devise ==
   config.authenticate_with do
-    warden.authenticate! scope: :user
+    warden.authenticate! scope: :admin
   end
   config.current_user_method(&:current_user)
   ## == Cancan ==
@@ -12,6 +12,7 @@ RailsAdmin.config do |config|
 
   ## == Pundit ==
   # config.authorize_with :pundit
+  # config.parent_controller = '::ApplicationController'
   ## == PaperTrail ==
   # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0
 
