@@ -1,6 +1,10 @@
 class ItemsController < ApplicationController
 	def index
-		@books = Book.all
+		if params[:search].present?
+			@books = Book.search_book(params[:search][:name], params[:search][:author], params[:search][:category])
+		else
+			@books = Book.all
+		end
 	end
 
 	def show
