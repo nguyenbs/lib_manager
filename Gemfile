@@ -15,6 +15,8 @@ gem 'rails_admin', '~> 1.2'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 gem 'unicorn'
+gem "pundit"
+gem "rails_admin_pundit", :github => "sudosu/rails_admin_pundit"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'font-awesome-sass', '~> 4.7.0'
