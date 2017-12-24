@@ -1,0 +1,53 @@
+#content.site-content
+  #primary.content-area
+    main#main.site-main style="margin-top: 100px"
+      .booksmedia-detail-main
+        .container
+          .row
+            .col-md-9
+              .booksmedia-detail-box
+                .single-book-box
+                  .post-thumbnail style="margin: 0px; padding: 50px"
+                    = image_tag @book.image
+                  .post-detail style="right: -60px; width: 420px; padding: 30px"
+                    .optional-links
+                      ul
+                        li
+                          a data-original-title=("Add To Cart") data-placement="top" data-toggle="blog-tags"
+                            i.fa.fa-shopping-cart
+                    header.entry-header
+                      h2.entry-title #{@book.name}
+                      ul
+                        li
+                          strong Author:
+                          - @book.authors.each do |author|
+                            = author.name
+                        li
+                          label Rating
+                          select.rating-item style='display: none'
+                            - 5.times do |i|
+                              - if i < @book.rating
+                                option selected="selected" value="#{i+1}" #{i+1}
+                              - else
+                                option value="#{i+1}" #{i+1}
+                        li
+                          strong Publisher: #{@book.publisher.name}
+                p
+                  strong Description:
+                  | #{@book.description}
+                ul.detail-page-listing
+                  li
+                    strong Length:
+                    | #{@book.weight}
+                  li
+                    strong Language Note:
+                    | #{@book.language}
+
+sass:
+  .select
+    display: none
+javascript:
+  $('.rating-item').barrating({
+    theme: 'bootstrap-stars',
+    readonly: true,
+  });
