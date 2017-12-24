@@ -364,6 +364,7 @@ DEPENDENCIES
   slim
   spring
   spring-watcher-listen (~> 2.0.0)
+  sshkit
   therubyracer!
   turbolinks (~> 5)
   tzinfo-data
