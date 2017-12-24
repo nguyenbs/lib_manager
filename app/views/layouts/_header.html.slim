@@ -35,62 +35,11 @@ header#header-v1.navbar-wrapper
                     .header-cart.dropdown
                       a.dropdown-toggle[data-toggle="dropdown" href="./_.__ LIBRARIA __.._files/saved_resource"]
                         i.fa.fa-shopping-cart
-                        small
-                          | 0
+                        small#number-item data-number='0' 0
                       .dropdown-menu.cart-dropdown[style=""]
-                        ul
-                          li.clearfix
-                            = image_tag 'header-cart-image-01.jpg'
-                            .item-info
-                              .name
-                                a[href="./_.__ LIBRARIA __.._files/saved_resource"]
-                                  | The Great Gatsby
-                              .author
-                                strong
-                                  | Author:
-                                |  F. Scott Fitzgerald
-                              .price
-                                | 1 X $10.00
-                            a.remove[href="./_.__ LIBRARIA __.._files/saved_resource"]
-                              i.fa.fa-trash-o
-                          li.clearfix
-                            = image_tag 'header-cart-image-02.jpg'
-                            .item-info
-                              .name
-                                a[href="./_.__ LIBRARIA __.._files/saved_resource"]
-                                  | The Great Gatsby
-                              .author
-                                strong
-                                  | Author:
-                                |  F. Scott Fitzgerald
-                              .price
-                                | 1 X $10.00
-                            a.remove[href="./_.__ LIBRARIA __.._files/saved_resource"]
-                              i.fa.fa-trash-o
-                          li.clearfix
-                            = image_tag 'header-cart-image-03.jpg'
-                            .item-info
-                              .name
-                                a[href="./_.__ LIBRARIA __.._files/saved_resource"]
-                                  | The Great Gatsby
-                              .author
-                                strong
-                                  | Author:
-                                |  F. Scott Fitzgerald
-                              .price
-                                | 1 X $10.00
-                            a.remove[href="./_.__ LIBRARIA __.._files/saved_resource"]
-                              i.fa.fa-trash-o
-                        .cart-total
-                          .title
-                            | SubTotal
-                          .price
-                            | $30.00
+                        ul#list-cart
                         .cart-buttons
-                          a.btn.btn-dark-gray[href="http://demo.presstigers.com/libraria/public_html/cart.html"]
-                            | View Cart
-                          a.btn.btn-primary[href="http://demo.presstigers.com/libraria/public_html/checkout.html"]
-                            | Checkout
+                          = link_to 'View Cart', carts_path, class: 'btn btn-dark-gray'
             .navbar-collapse.hidden-sm.hidden-xs
               ul.nav.navbar-nav
                 li.dropdown.active

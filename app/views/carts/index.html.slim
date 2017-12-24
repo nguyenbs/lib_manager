@@ -1,0 +1,34 @@
+section.page-banner.services-banner
+  .container
+    .banner-header
+      h2 Cart Page
+      span.underline.center
+      p.lead Proin ac eros pellentesque dolor pharetra tempo.
+    .breadcrumb
+      ul
+        li
+          = link_to 'Home', root_path
+        li Dashboard
+#content.site-content
+  #primary.content-area
+    main#main.site-main
+      - if current_user.present? && current_user.admin?
+        = render 'carts/admin_cart'
+      - else
+        = render 'carts/user_cart'
+sass:
+  .list-buttons
+    float: right
+    margin-right: 28px
+    margin-bottom: 30px
+    margin-top: 20px
+
+    #button-create, #button-delete, .button-borrow, .btn-secondary
+      height: 40px
+      line-height: 28px
+      border-radius: 0
+      margin-right: 20px
+    .date-return
+      width: 300px
+      padding: 9px
+      margin-left: 10px

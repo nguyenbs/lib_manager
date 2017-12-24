@@ -1,0 +1,49 @@
+.cart-main
+  .container
+    .row
+      .cart-head
+        .col-xs-12.col-sm-6.account-option
+          -if current_user.present?
+            strong current_user.name
+            ul
+              li
+                = link_to "Edit Account", edit_user_path(current_user)
+      .col-md-12
+        .page.type-page.status-publish.hentry
+          .entry-content
+            #responsiveTabs
+              #sectionA.tab-pane.fade.in.active.r-tabs-panel.r-tabs-state-active style=("display: block;")
+                table.table.table-bordered.shop_table.cart
+                  thead
+                    tr
+                      th.product-name Title
+                      th.product-name
+                        a.select-box data-checked='true' Selete All
+                        | /
+                        a.select-box data-checked='false' None
+                  tbody#table-data-item data-user_admin="true"
+                    - @books.each do |book|
+                      tr.cart_item class="item-#{book.id}"
+                        td.product-name data-th="Title" data-title="Product"
+                          span.bt-content
+                            span.product-thumbnail.col-xs-8 style="display: inline-block"
+                              = link_to item_path(book.book.id) do
+                                = image_tag book.book.image, width: 300
+                            span.product-detail style="display: inline-block"
+                              = link_to book.book.name, item_path(book.id)
+                              span
+                                strong Description: #{book.book.description}
+                              span
+                                strong Language: #{book.book.language}
+                              span
+                                strong Amount: #{book.book.amount}
+                              span
+                                strong Publish Year: #{book.book.publisher_year}
+                        td.product-cbox data-th=" " data-title="cbox"
+                          span.bt-content
+                            span
+                              input.item-checkbox checked="" type="checkbox" value="#{book.id}"
+      .list-buttons
+        a.btn.btn-primary.button-action data-url="#{update_process_path}"  data-token="#{form_authenticity_token}" data-status='1' Accept
+        a.btn.btn-primary.button-action data-url="#{update_process_path}"  data-token="#{form_authenticity_token}" data-status='2' Return
+        a.btn.btn-danger.button-action data-url="#{update_process_path}" data-token="#{form_authenticity_token}" data-status='3' Reject
