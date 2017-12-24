@@ -1,0 +1,47 @@
+.cart-main
+  .container
+    .row
+      .cart-head
+        .col-xs-12.col-sm-6.account-option
+          strong current_user.name
+          ul
+            li
+              = link_to "Edit Account", edit_user_path(current_user)
+      .col-md-12
+        .page.type-page.status-publish.hentry
+          .entry-content
+            #responsiveTabs.woocommerce.table-tabs.r-tabs
+              ul.nav.nav-tabs.r-tabs-nav
+                li.active.r-tabs-tab.r-tabs-state-active
+                  b.arrow-up
+                  a.r-tabs-anchor data-toggle="tab" href="#sectionA" My Cart
+                li.r-tabs-state-default.r-tabs-tab
+                  b.arrow-up
+                  a.r-tabs-anchor data-toggle="tab" href="#sectionB"  My Books
+              .tab-content style="max-height: 1000px; overflow-x: auto;"
+                #sectionA.tab-pane.fade.in.active.r-tabs-panel.r-tabs-state-active style=("display: block;")
+                  table.table.table-bordered.shop_table.cart
+                    thead
+                      tr
+                        th.product-name Title
+                        th.product-name &nbsp;
+                    tbody#table-data-item data-user_admin="false"
+                #sectionB.tab-pane.fade.in.r-tabs-state-default.r-tabs-panel
+                  h5 Lorem Ipsum Dolor
+                  p There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.
+      .list-buttons
+        a.btn.btn-primary.button-borrow data-target="#exampleModal" data-toggle="modal" type="button"  Borrow Book
+        a.btn.btn-danger#button-delete Delete Book
+        #exampleModal.modal.fade aria-hidden="true" aria-labelledby="exampleModalLabel" role="dialog" tabindex="-1"
+          .modal-dialog role="document"
+            .modal-content
+              .modal-header
+                h5#exampleModalLabel.modal-title Date Return Book
+                button.close aria-label="Close" data-dismiss="modal" type="button"
+                  span aria-hidden="true"  &times;
+              .modal-body
+                label Date Return:
+                input type="date" name="date_return" class='date-return' value="#{Date.today}"
+              .modal-footer
+                button.btn.btn-secondary data-dismiss="modal" type="button"  Close
+                button.btn.btn-primary#button-create data-url="#{borrow_item_path}" data-token="#{form_authenticity_token}" Borrow

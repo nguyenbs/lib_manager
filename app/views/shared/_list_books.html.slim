@@ -21,7 +21,8 @@
             = link_to 'Read More', item_path(book)
             ol
               li
-                i.fa.fa-shopping-cart
+                a.icon data-item="#{book.to_json}" onClick="add_item(event)"
+                  i.fa.fa-shopping-cart
               li
                 i.fa.fa-heart
               li
@@ -31,6 +32,10 @@
               li
                 i.fa.fa-search
   .clearfix
+sass:
+  .icon:hover
+    color: white
+    cursor: pointer
 javascript:
   $('.rating-item').barrating({
     theme: 'bootstrap-stars',
